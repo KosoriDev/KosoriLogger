@@ -27,6 +27,7 @@ jobs:
               with:
                 bun-version: latest
             - run: bun install
+            - run: echo "//registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}" > ~/.npmrc
             - run: bun publish
               env:
                 NODE_AUTH_TOKEN: ${{secrets.npm_token}}
